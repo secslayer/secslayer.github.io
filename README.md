@@ -8,7 +8,7 @@ no external requests, so it renders identically offline and can't break from a C
 ## Structure
 
 - `index.html` — the whole site
-- (a downloadable `resume.pdf` is intentionally not published yet — see repo history)
+- `resume.pdf` — downloadable resume, linked from the header
 
 ## Editing
 
