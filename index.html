@@ -1,0 +1,434 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammed Muiz Arummal</title>
+<meta name="description" content="AI/ML and cybersecurity engineer — SOC telemetry, detection engineering, and adversarial ML evaluation.">
+<style>
+  :root {
+    --bg:        #eef0f2;
+    --surface:   #f8f9fa;
+    --surface-2: #e2e5e9;
+    --ink:       #12171c;
+    --ink-soft:  #4e565f;
+    --ink-faint: #838b94;
+    --rule:      #ccd1d7;
+    --signal:    #0a6b76;
+    --signal-dim:#bcdcdf;
+    --caution:   #8a5a09;
+    --caution-dim:#f0e2c6;
+    --trace:     #9fb0b4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #0d1115;
+      --surface:   #141a20;
+      --surface-2: #1c242b;
+      --ink:       #e7eaed;
+      --ink-soft:  #9aa4ae;
+      --ink-faint: #6b747d;
+      --rule:      #28313a;
+      --signal:    #52ced9;
+      --signal-dim:#123840;
+      --caution:   #d9a441;
+      --caution-dim:#3a2e15;
+      --trace:     #3a474f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:        #0d1115;
+    --surface:   #141a20;
+    --surface-2: #1c242b;
+    --ink:       #e7eaed;
+    --ink-soft:  #9aa4ae;
+    --ink-faint: #6b747d;
+    --rule:      #28313a;
+    --signal:    #52ced9;
+    --signal-dim:#123840;
+    --caution:   #d9a441;
+    --caution-dim:#3a2e15;
+    --trace:     #3a474f;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  ::selection { background: var(--signal-dim); }
+
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
+
+  /* ---- header ---------------------------------------------------------- */
+  header { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2rem, 4vw, 3rem); }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7.5vw, 5.1rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  .role {
+    margin: 1.1rem 0 0;
+    font-size: clamp(1.02rem, 2vw, 1.22rem);
+    color: var(--ink-soft);
+    max-width: 40ch;
+    line-height: 1.45;
+  }
+  .role strong { color: var(--ink); font-weight: 600; }
+  .meta {
+    margin-top: 1.6rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+    font-size: 0.83rem; letter-spacing: 0.02em;
+  }
+  .meta a { color: var(--signal); text-decoration: none; border-bottom: 1px solid transparent; }
+  .meta a:hover, .meta a:focus-visible { border-bottom-color: currentColor; }
+  .meta .place { color: var(--ink-faint); }
+
+  /* ---- signal-trace divider ------------------------------------------- */
+  .trace { display: block; width: 100%; height: 14px; overflow: visible; }
+  .trace path { fill: none; stroke: var(--trace); stroke-width: 1.25; }
+
+  /* ---- section rail layout -------------------------------------------- */
+  section { padding: clamp(2.5rem, 5vw, 4rem) 0; }
+  .row { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); }
+  @media (max-width: 720px) { .row { grid-template-columns: 1fr; gap: 1.1rem; } }
+  .rail { position: relative; }
+  .rail .label {
+    position: sticky; top: 1.75rem;
+    font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 500;
+  }
+  @media (max-width: 720px) { .rail .label { position: static; } }
+
+  h2 { font-size: clamp(1.3rem, 2.4vw, 1.55rem); letter-spacing: -0.015em; margin: 0 0 0.4rem; font-weight: 650; }
+  .lede { color: var(--ink-soft); max-width: 62ch; margin: 0; }
+
+  /* ---- entries --------------------------------------------------------- */
+  .entry { padding: 1.35rem 0; border-top: 1px solid var(--rule); }
+  .entry:first-child { border-top: none; padding-top: 0; }
+  .entry-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem; }
+  .entry-head h3 { margin: 0; font-size: 1.03rem; font-weight: 650; letter-spacing: -0.005em; }
+  .entry-head .kind { font-size: 0.76rem; color: var(--ink-faint); }
+  .entry p { margin: 0.5rem 0 0; color: var(--ink-soft); max-width: 64ch; }
+  .entry ul { margin: 0.55rem 0 0; padding-left: 1.05rem; color: var(--ink-soft); max-width: 64ch; }
+  .entry li { margin: 0.3rem 0; }
+  .entry li::marker { color: var(--ink-faint); }
+
+  /* provenance line — where a claim can actually be checked */
+  .src {
+    margin-top: 0.7rem; font-size: 0.78rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-items: center;
+  }
+  .src a { color: var(--signal); text-decoration: none; border-bottom: 1px solid var(--signal-dim); }
+  .src a:hover, .src a:focus-visible { border-bottom-color: currentColor; }
+  .src .none { color: var(--ink-faint); }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 0.4em;
+    font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 0.2em 0.55em; border-radius: 3px; font-weight: 600;
+  }
+  .status.verified { background: var(--signal-dim); color: var(--signal); }
+  .status.progress { background: var(--caution-dim); color: var(--caution); }
+  .status::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  /* ---- skills ---------------------------------------------------------- */
+  .skills { display: grid; gap: 1.15rem; }
+  .skillgroup dt {
+    font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 0.45rem;
+  }
+  .skillgroup dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skillgroup dd span {
+    font-size: 0.83rem; padding: 0.22em 0.6em;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+    color: var(--ink-soft);
+  }
+
+  /* ---- footer ---------------------------------------------------------- */
+  footer { padding: 3rem 0 4rem; color: var(--ink-faint); font-size: 0.8rem; }
+  footer a { color: var(--signal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .colophon { margin-top: 0.5rem; max-width: 62ch; line-height: 1.55; }
+
+  a:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .trace path { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.6s ease-out forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <h1>Muhammed Muiz<br>Arummal</h1>
+    <p class="role">AI/ML and cybersecurity engineer working on <strong>SOC telemetry</strong>,
+      <strong>detection engineering</strong>, and the measurement problem in
+      <strong>adversarial ML evaluation</strong> — how you know an attack or a defense actually
+      did what the number says it did.</p>
+    <nav class="meta mono">
+      <span class="place">Kannur, Kerala, India</span>
+      <a href="mailto:abdulmuiz3570@gmail.com">abdulmuiz3570@gmail.com</a>
+      <a href="https://github.com/secslayer" rel="me">github.com/secslayer</a>
+      <a href="https://www.linkedin.com/in/muhammed-muiz-111ba3362" rel="me">linkedin</a>
+    </nav>
+  </header>
+
+  <svg class="trace" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 7 H240 l6 -5 l7 10 l6 -7 H420 l5 -4 l6 8 l5 -4 H700 l8 -6 l6 12 l7 -6 H1000"/>
+  </svg>
+
+  <main>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Focus</div></div>
+        <div>
+          <h2>Measurement you can check</h2>
+          <p class="lede">CompTIA CySA+ certified, with a background in SOC telemetry pipelines and
+            cloud-native LLM orchestration. Most of my recent work sits at one seam: automated
+            evaluation in AI security is trusted because it produces a clean number, and that
+            number is often wrong. I build the pipeline, then I check what the pipeline is
+            actually telling me — and publish the cases where it lied.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Research</div></div>
+        <div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Judge-Shaped, Not Harm-Shaped</h3>
+              <span class="status progress">Preprint in prep</span>
+            </div>
+            <span class="kind mono">Jailbreak-judge measurement validity · activation-guided fuzzing</span>
+            <p>A jailbreak success judge is the thing that decides whether an attack worked, and
+              the field reuses one small frozen classifier across many papers without
+              re-validating it. I found it inflates success by rewarding jailbreak-<em>shaped</em>
+              surface form — persona and roleplay framing — over actual harmful content.</p>
+            <ul>
+              <li>Built a stricter two-stage replacement (refusal pre-filter + anti-roleplay
+                rubric judge). <strong>It did not fully work</strong> — it still passed a completion
+                that refuses the request and offers crisis-support resources. The failure mode
+                survives a fix built specifically to stop it.</li>
+              <li>Secondary result, reported as an honest null: activation-guided span mutation
+                shows no consistent advantage over uniform mutation on either target tested — with
+                the mechanism independently confirmed engaged, so the null is not an artifact of
+                the method quietly doing nothing.</li>
+              <li>All results smoke-scale (n=5 per condition); the planned larger matrix did not
+                run — free-tier compute was exhausted first, stated plainly rather than disguised.</li>
+            </ul>
+            <div class="src mono">
+              <a href="https://github.com/secslayer/jlens-fuzz">github.com/secslayer/jlens-fuzz</a>
+              <span class="none">paper, results JSON, and peer-review gate records in-repo</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>AJF reproduction</h3>
+              <span class="status verified">Reproduced</span>
+            </div>
+            <span class="kind mono">Independent reproduction · adaptive jailbreak framework (arXiv:2505.23404)</span>
+            <p>Full reproduction of a 2026 jailbreak paper's mechanism — prompt mutation, binary-tree
+              encoding, dual-cipher output encryption, and its capability-classification probe — run
+              against three local models, plus an ablation and a defense the original paper names
+              in its own limitations but never evaluates.</p>
+            <ul>
+              <li>The same measurement failure recurred independently here: a self-judge was wrong
+                in <em>both</em> directions on the same five prompts — scoring refusals as
+                compliance, and scoring real compliance as refusal. Every result was re-checked by
+                hand and the corrected verdicts committed alongside the originals.</li>
+              <li>Also caught a bug in my own harness that was corrupting the data before scoring —
+                documented rather than quietly fixed, because it changed what earlier results meant.</li>
+            </ul>
+            <div class="src mono">
+              <a href="https://github.com/secslayer/reproductions">github.com/secslayer/reproductions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <svg class="trace" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 7 H150 l7 -6 l6 11 l6 -8 H480 l6 -3 l5 7 l6 -4 H820 l6 -7 l7 13 l6 -6 H1000"/>
+    </svg>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Engineering</div></div>
+        <div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Secure Guard</h3>
+              <span class="kind mono">AI-driven incident response &amp; SOC automation</span>
+            </div>
+            <ul>
+              <li>Telemetry pipeline (Sysmon/Winlogbeat → Logstash → Elasticsearch) normalizing
+                45K+ events, with Python and SQL cleaning to extract analysis-ready threat datasets.</li>
+              <li>XGBoost and SVM classifiers with PCA-optimized cross-validation, reaching ~85%
+                accuracy and balanced precision across highly varied malware datasets.</li>
+              <li>Prophet-based forecasting of playbook triggers, turning statistical thresholds
+                into concrete response workflows to cut triage lag during simulated attacks.</li>
+            </ul>
+            <div class="src mono"><a href="https://github.com/secslayer/ai-soc">github.com/secslayer/ai-soc</a></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>GptGram</h3>
+              <span class="kind mono">Production-ready agentic AI platform</span>
+            </div>
+            <ul>
+              <li>Orchestration backend on AWS — REST APIs and JSON payloads over distributed
+                Celery task queues, handling high-concurrency LLM inference for multi-agent reasoning.</li>
+              <li>Semantic RAG pipelines on Qdrant, persisting conversational state to S3, under
+                enforced Git/CI-CD and Agile working practice.</li>
+            </ul>
+            <div class="src mono"><a href="https://github.com/secslayer/Gptgram-production-ready-">github.com/secslayer/Gptgram-production-ready-</a></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Ggram</h3>
+              <span class="kind mono">Collaborative agentic AI platform</span>
+            </div>
+            <p>Agentic platform using graph neural networks to autonomously solve ML routing tasks.</p>
+            <div class="src mono"><a href="https://github.com/secslayer/Ggram">github.com/secslayer/Ggram</a></div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>NLP chatbot &amp; ML pipeline</h3>
+              <span class="kind mono">Proof of concept</span>
+            </div>
+            <p>Lightweight scikit-learn chatbot that reduced simulated SOC false positives by ~30%
+              through data transformation and ensemble predictive models.</p>
+            <div class="src mono"><span class="none">not public</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Capabilities</div></div>
+        <div class="skills">
+          <dl class="skillgroup">
+            <dt>Security &amp; SOC</dt>
+            <dd><span>Detection engineering</span><span>SIEM — ELK</span><span>Splunk</span><span>Incident response</span><span>Threat hunting</span><span>MITRE ATT&amp;CK</span></dd>
+          </dl>
+          <dl class="skillgroup">
+            <dt>AI, ML &amp; GenAI</dt>
+            <dd><span>PyTorch</span><span>scikit-learn</span><span>XGBoost</span><span>LLM orchestration</span><span>LangChain</span><span>RAG</span><span>NLP</span></dd>
+          </dl>
+          <dl class="skillgroup">
+            <dt>Data</dt>
+            <dd><span>Python — Pandas, NumPy</span><span>SQL</span><span>Databricks</span><span>Power BI</span><span>Data cleaning</span></dd>
+          </dl>
+          <dl class="skillgroup">
+            <dt>Cloud &amp; engineering</dt>
+            <dd><span>AWS — EC2, S3</span><span>Docker</span><span>Git / CI-CD</span><span>REST APIs</span><span>Agile / Scrum</span></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <svg class="trace" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 7 H310 l6 -8 l6 14 l6 -8 H560 l7 -4 l5 6 l6 -3 H880 l6 -5 l6 9 l6 -5 H1000"/>
+    </svg>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Credentials</div></div>
+        <div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>CompTIA CySA+ — Cybersecurity Analyst (CS0-003)</h3>
+              <span class="status verified">Earned</span>
+            </div>
+            <div class="src mono"><span class="none">Credly badge — verification link pending</span></div>
+          </div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Mathematics for Machine Learning</h3>
+              <span class="status verified">Earned</span>
+            </div>
+            <span class="kind mono">Imperial College London, via Coursera — linear algebra, multivariate calculus, PCA</span>
+          </div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>SOC Analyst</h3>
+              <span class="status verified">Earned</span>
+            </div>
+            <span class="kind mono">TryHackMe</span>
+          </div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>AWS Certified Generative AI Developer (AIP-C01)</h3>
+              <span class="status progress">Prep completed — exam not sat</span>
+            </div>
+            <span class="kind mono">Preparation course completion, not the certification itself</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Also</div></div>
+        <div>
+          <div class="entry">
+            <div class="entry-head"><h3>Competition &amp; community</h3></div>
+            <ul>
+              <li>Kaggle data science challenges — currently competing in ARC Prize 2026 (ARC-AGI-3).</li>
+              <li>High rankings in Hack The Box and CTF competitions — offensive security,
+                vulnerability analysis, anomaly detection.</li>
+              <li>ACM chapter participation; TryHackMe and HTB workshops on detection engineering,
+                incident response, and MITRE ATT&amp;CK.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="rail"><div class="label">Education</div></div>
+        <div>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>B.Tech, Computer Science &amp; Engineering</h3>
+              <span class="kind mono">TKM Institute of Technology · graduated 2025 · CGPA 7.56/10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <svg class="trace" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 7 H1000"/>
+  </svg>
+
+  <footer>
+    <div><a href="mailto:abdulmuiz3570@gmail.com">abdulmuiz3570@gmail.com</a> · <a href="https://github.com/secslayer">github.com/secslayer</a></div>
+    <p class="colophon">Every claim on this page links to where it can be checked, or says plainly
+      that it can't. That rule is borrowed from my own repo's contributing rules, where it reads:
+      a number with no provenance does not go in the paper.</p>
+  </footer>
+
+</div>
