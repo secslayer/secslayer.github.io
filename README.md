@@ -24,3 +24,13 @@ Every claim links to where it can be checked, or says plainly that it can't — 
 finished than it is. Borrowed from [jlens-fuzz](https://github.com/secslayer/jlens-fuzz)'s own
 contributing rule: a number with no provenance does not go in the paper. If you edit this page,
 keep that property.
+
+## License
+
+[MIT](LICENSE) — for the site's **code**: the markup, CSS, and layout in `index.html`. Reuse the
+template freely.
+
+**Not covered:** the written content (biography, project descriptions, wording) and `resume.pdf`
+are personal materials, not licensed for reuse. MIT is a software licence and is not intended to
+put a person's CV or professional history into the public domain. Take the structure and styling
+if they're useful; write your own words.
