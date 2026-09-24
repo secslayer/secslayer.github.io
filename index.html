@@ -262,6 +262,32 @@
               <a href="https://github.com/secslayer/reproductions">github.com/secslayer/reproductions</a>
             </div>
           </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Attacker architecture over model size</h3>
+              <span class="status progress">In progress</span>
+            </div>
+            <span class="kind mono">Agentic-AI-security benchmark · OWASP FinBot CTF · scored by the target's own detector</span>
+            <p>A harness that runs local LLM attackers against a deliberately-vulnerable
+              multi-agent target (OWASP FinBot CTF) across three attacker architectures —
+              single-shot, an agentic loop that reads and adapts, and a
+              Supervisor&rarr;Generation&rarr;Reflection&rarr;Evolution multi-agent pipeline.
+              Success is scored by the <em>target's own</em> automatic exploit detector, not
+              by the attacker grading itself.</p>
+            <ul>
+              <li>Single-shot never engaged the workflow. The multi-agent attacker (llama3.1)
+                ran a real chain — recon, policy-exception social engineering, adaptation —
+                and still failed, but for a higher-level reason: strategic drift, not a weaker
+                model. <strong>Attacker architecture dominates model choice.</strong></li>
+              <li>Honest state: the orchestration is wired, but the four agent prompts — the
+                ideation design that actually decides the attack — are still open. No exploit
+                is claimed; the result so far is a documented rung-0 failure with its cause named.</li>
+            </ul>
+            <div class="src mono">
+              <a href="https://github.com/secslayer/finbot-bench">github.com/secslayer/finbot-bench</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
